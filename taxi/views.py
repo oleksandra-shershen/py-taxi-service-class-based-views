@@ -18,7 +18,7 @@ def index(request):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    queryset = Manufacturer.objects.all().order_by("name")
+    queryset = Manufacturer.objects.order_by("name")
     paginate_by = 5
 
 
@@ -40,4 +40,4 @@ class DriverListView(ListView):
 
 class DriverDetailView(DetailView):
     model = Driver
-    queryset = Driver.objects.all().prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related("cars")
